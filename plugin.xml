@@ -1,0 +1,20 @@
+<idea-plugin>
+    <id>com.todo.plugin.todo_highlighter</id>
+    <name>TODO Scanner</name>
+    <version>1.0</version>
+    <vendor>YourName</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.kotlin</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="TodoPanel" anchor="right"
+                    factoryClass="com.todo.plugin.todo_highlighter.TodoToolWindowFactory"/>
+
+        <annotator language="kotlin"
+                   implementationClass="com.todo.plugin.todo_highlighter.TodoAnnotator"/>
+
+        <editorFactoryListener implementation="com.todo.plugin.todo_highlighter.EditorChangeListener"/>
+        <postStartupActivity implementation="com.todo.plugin.todo_highlighter.TodoStartupActivity"/>
+    </extensions>
+</idea-plugin>
